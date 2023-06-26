@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.logo {
+  color: black;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.buttonX {
+  width:max-content;
+  padding-top: var(--mpr-m);
+  padding-bottom: var(--mpr-m);
+  padding-left: var(--mpr-xl);
+  padding-right: var(--mpr-xl);
+  background-color: var(--clr-primary-500);
+  color: var(--clr-primary-50);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid var(--clr-primary-50);
+  border-radius: 10em;
+  box-shadow: none;
+}
+
+.buttonX.white {
+  background-color: white;
+  color: var(--clr-text-800);
+  border-color: white;
+}

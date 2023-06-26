@@ -1,0 +1,19 @@
+/* root is a area for css variable declaration */
+:root {
+  /* Primary Color */
+  --clr-primary-50:#FFF6DB;
+  --clr-primary-300: #febc5b;
+  --clr-primary-500: #ff9f0d;
+ 
+
+  /* Text Color */
+  --clr-text-700: #717171;
+  --clr-text-800: #484848;
+
+  /* Margin Padding Radius */
+  --mpr-xs: 0.2em;
+  --mpr-s: 0.4em;
+  --mpr-m: 0.6em;
+  --mpr-l: 0.8em;
+  --mpr-xl: 1em;
+}

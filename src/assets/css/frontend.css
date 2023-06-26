@@ -1,0 +1,68 @@
+.sectionX {
+  padding-left: 10em;
+  padding-right: 10em;
+}
+
+.main-header {
+  padding-top: var(--mpr-s);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+}
+
+.header-right-section .nav {
+  display: flex;
+  gap: 4em;
+}
+
+.header-right-section .nav a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header-right-section .nav a.active {
+  color: var(--clr-primary-500);
+}
+
+.header-right-section .nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  padding-top: 5em;
+  padding-bottom: 5.5em;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.hero-blob {
+  height: 1100px;
+  position: absolute;
+  top: -24em;
+  right: -18em;
+  transform: rotate(-5deg);
+  z-index: -1;
+}
+
+.hero-section .hero-left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-section .hero-heading {
+  font-size: 2.5rem;
+}
+
+.hero-section .hero-left-para {
+  margin-bottom: calc(2.5 * var(--mpr-xl));
+}
