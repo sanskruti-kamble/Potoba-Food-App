@@ -15,3 +15,73 @@ label{
   font-family: "Poppins", sans-serif;
   color: var(--clr-text-800);
 }
+
+
+
+/* CSS for Text Color  */
+.txt-primary{
+  color:var(--clr-primary-500);
+}
+
+.txt-secondary{
+  color:var(--clr-secondary-500);
+}
+
+.txt-success{
+  color:var(--clr-success-500);
+}
+
+.txt-warning{
+  color:var(--clr-warning-500);
+}
+
+.txt-error{
+  color:var(--clr-error-500);
+}
+
+
+
+/* Table CSS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+/* CSS for Input  */
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+

@@ -1,21 +1,103 @@
 import heroBlob from "../assets/images/blob.svg";
 import foodDish from "../assets/images/food_dish.png";
+import sideImg from "../assets/images/side_img.png";
+import menuDish1 from "../assets/images/food_plates/plate1.jpg";
+import { useState } from "react";
 
 export default function Landing() {
+  const infoSectionList = [
+    {
+      id: 1,
+      iconClass: "bi bi-clock-fill",
+      title: "Today 10:00 am - 7:pm",
+      subTitle: "Working hours",
+    },
+    {
+      id: 2,
+      iconClass: "bi bi-geo-alt-fill",
+      title: "Velyka Vasylkivska 100",
+      subTitle: "Get Directions",
+    },
+    {
+      id: 3,
+      iconClass: "bi bi-telephone-fill",
+      title: "+38 (063)833 24 15",
+      subTitle: "Call Online",
+    },
+  ];
+
+  const [foodList] = useState([
+    {
+      id: 1,
+      title: "Rose Muffen",
+      subTitle: "Served with french fries + drink",
+      price: 120,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 3,
+    },
+    {
+      id: 2,
+      title: "Rose Muffen-2",
+      subTitle: "Served with french fries + drink",
+      price: 120,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 4,
+    },
+    {
+      id: 3,
+      title: "Rose Muffen-3",
+      subTitle: "Served with french fries + drink",
+      price: 125,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 4,
+    },
+    {
+      id: 4,
+      title: "Rose Muffen-4",
+      subTitle: "Served with french fries + drink",
+      price: 220,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 3,
+    },
+    {
+      id: 5,
+      title: "Rose Muffen-5",
+      subTitle: "Served with french fries + drink",
+      price: 320,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 4,
+    },
+    {
+      id: 6,
+      title: "Rose Muffen-6",
+      subTitle: "Served with french fries + drink",
+      price: 520,
+      description:
+        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+      stars: 4,
+    },
+  ]);
+
   return (
     <>
       <header className="main-header sectionX">
         <div className="logo">Potoba.</div>
         <div className="header-right-section">
           <nav className="nav">
-            <a className="active" href="#">
+            <a className="active" href="#ok">
               Home
             </a>
-            <a href="#">Packages</a>
-            <a href="#">About us</a>
-            <a href="#">Contact us</a>
+            <a href="#ok">Packages</a>
+            <a href="#ok">About us</a>
+            <a href="#ok">Contact us</a>
           </nav>
           <div className="action-buttons">
+            <i className="bi bi-cart3" />
             <button className="buttonX white">Booking Now</button>
           </div>
         </div>
@@ -23,15 +105,86 @@ export default function Landing() {
       <section className="hero-section sectionX">
         <img className="hero-blob" src={heroBlob} alt="" />
         <div className="hero-left-section">
-          <h1 className="hero-heading">Your Favorite Food Delivered Hot & Fresh</h1>
+          <h1 className="hero-heading">
+            Your Favorite Food Delivered Hot & Fresh
+          </h1>
           <p className="hero-left-para">
             Healthy switcher chefs do all the prep work, like feeding,chopping &
             marinating, so you cam cook a fresh food.
           </p>
-          <button className="buttonX">Order Now</button>
+          <button className="buttonX">
+            Order Now
+            <i className="bi bi-arrow-right-short" />
+          </button>
+        </div>
+        <img className="" src={foodDish} alt="Food Dish" />
+        <img className="hero-side-img" src={sideImg} alt="" />
+      </section>
+      <section className="visit-info-section sectionX">
+        <div className="info-box">
+          <i className={infoSectionList[0].iconClass} />
+          <h4>{infoSectionList[0].title}</h4>
+          <p>{infoSectionList[0].subTitle}</p>
         </div>
 
-        <img className="" src={foodDish} alt="" />
+        <div className="info-box">
+          <i className={infoSectionList[1].iconClass} />
+          <h4>{infoSectionList[1].title}</h4>
+          <p>{infoSectionList[1].subTitle}</p>
+        </div>
+
+        <div className="info-box">
+          <i className={infoSectionList[2].iconClass} />
+          <h4>{infoSectionList[2].title}</h4>
+          <p>{infoSectionList[2].subTitle}</p>
+        </div>
+      </section>
+      <section className="menu-section sectionX">
+        <div className="section-header">
+          <label>Menu</label>
+          <h2>Explore Our Best Menu</h2>
+          <p>
+            It's through mistakes that you actually grow <br />
+            You have to get bad in order to get good.
+          </p>
+        </div>
+        <div className="menu-list">
+          {foodList.map((food) => (
+            <div className="food-item" key={"food" + food.id}>
+              <img className="food-img" src={menuDish1} alt="food item" />
+              <div className="food-details">
+                <h3 className="food-title">{food.title}</h3>
+                <p className="food-subtitle">{food.subTitle}</p>
+                <p className="price">{food.price}$</p>
+                <p>{food.description}</p>
+                <div>
+                  {[...Array(food.stars)].map((star, index) => (
+                    <i className="bi bi-star-fill" key={food.title + index} />
+                  ))}
+                </div>
+                <div className="add-to-cart">
+                  <i className="bi bi-plus-lg" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="menu-button">
+          <button className="buttonX">Load More</button>
+        </div>
+      </section>
+      <section className="testimonial-section sectionX">
+        <div className="section-header">
+        <label>Testimonial</label>
+          <h2>What They Are Saying</h2>
+          <p>
+            It's through mistakes that you actually grow <br />
+            You have to get bad in order to get good.
+          </p>
+        </div>
+      </section>
+      <section className="opinion-section sectionX">
+        <div className="opinion-box"></div>
       </section>
     </>
   );

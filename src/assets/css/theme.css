@@ -1,19 +1,26 @@
 /* root is a area for css variable declaration */
 :root {
   /* Primary Color */
-  --clr-primary-50:#FFF6DB;
+  --clr-primary-50: #fff6db;
   --clr-primary-300: #febc5b;
   --clr-primary-500: #ff9f0d;
- 
+
+  /* Secondary Color  */
+  --clr-secondary-500:rgb(73, 181, 243);
 
   /* Text Color */
   --clr-text-700: #717171;
   --clr-text-800: #484848;
 
+  /* Hint Color  */
+  --clr-success-500:green;
+  --clr-warning-500:orange;
+  --clr-error-500:red;
+
   /* Margin Padding Radius */
   --mpr-xs: 0.2em;
-  --mpr-s: 0.4em;
-  --mpr-m: 0.6em;
-  --mpr-l: 0.8em;
-  --mpr-xl: 1em;
+  --mpr-s: 0.6em;
+  --mpr-m: 1em;
+  --mpr-l: 1.2em;
+  --mpr-xl: 1.6em;
 }

@@ -4,6 +4,7 @@
 }
 
 body {
+  width: 100vw;
   overflow-x: hidden;
 }
 
@@ -14,13 +15,14 @@ body {
 }
 
 .buttonX {
-  width:max-content;
-  padding-top: var(--mpr-m);
-  padding-bottom: var(--mpr-m);
+  width: max-content;
+  padding-top: var(--mpr-s);
+  padding-bottom: var(--mpr-s);
   padding-left: var(--mpr-xl);
   padding-right: var(--mpr-xl);
   background-color: var(--clr-primary-500);
   color: var(--clr-primary-50);
+  display: flex;
   font-size: 1.2rem;
   font-weight: 600;
   border: 1px solid var(--clr-primary-50);
@@ -28,8 +30,40 @@ body {
   box-shadow: none;
 }
 
+.buttonX i {
+  color: var(--clr-primary-50);
+}
+
 .buttonX.white {
   background-color: white;
   color: var(--clr-text-800);
   border-color: white;
 }
+
+.buttonX.white i {
+  color: var(--clr-text-800);
+}
+
+.buttonX-grp{
+  margin-top: 1em;
+  margin-bottom: 3em;
+  display: flex;
+  gap: 1em;
+}
+
+.bi {
+  color: var(--clr-primary-500);
+  font-size: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.form-field input[required] + label::after,
+.form-field textarea[required] + label::after {
+  content: "*";
+  color: var(--clr-error-500);
+}
+
