@@ -13,7 +13,7 @@ export default function AddFoodItem() {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    setFoodList(JSON.parse(sessionStorage.getItem("foodList")));
+    setFoodList(JSON.parse(sessionStorage.getItem("foodList"))??[]);
   }, []);
 
   function resetFieldValue() {
