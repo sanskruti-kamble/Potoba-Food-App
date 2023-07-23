@@ -3,6 +3,13 @@
   padding-right: 10em;
 }
 
+@media screen and (max-width:480px) {
+  .sectionX {
+    padding-left: 2em;
+    padding-right: 2em;
+  }  
+}
+
 .section-header {
   margin-bottom: 3em;
   display: flex;

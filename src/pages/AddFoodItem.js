@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
 
@@ -12,6 +12,10 @@ export default function AddFoodItem() {
   const [foodList, setFoodList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
 
+  useEffect(() => {
+    setFoodList(JSON.parse(sessionStorage.getItem("foodList")));
+  }, []);
+
   function resetFieldValue() {
     setTitle("");
     setSubtitle("");
@@ -22,7 +26,10 @@ export default function AddFoodItem() {
   }
 
   function deleteFoodItems(foodIdToBeDelete) {
-    setFoodList(foodList.filter((food) => food.id !== foodIdToBeDelete));
+    const updatedList = foodList.filter((food) => food.id !== foodIdToBeDelete);
+
+    setFoodList(updatedList);
+    sessionStorage.setItem("foodList", JSON.stringify(updatedList));
 
     toast.success("Successfully Deleted!");
   }
@@ -40,22 +47,24 @@ export default function AddFoodItem() {
   function updateFood(event) {
     event.preventDefault();
 
-    setFoodList(
-      foodList.map((food) => {
-        if (food.id === foodId) {
-          return {
-            ...food,
-            title: title,
-            subTitle: subTitle,
-            price: price,
-            star: star,
-            aboutFood: aboutFood,
-          };
-        } else {
-          return food;
-        }
-      })
-    );
+    const updatedFoodList = foodList.map((food) => {
+      if (food.id === foodId) {
+        return {
+          ...food,
+          title: title,
+          subTitle: subTitle,
+          price: price,
+          star: star,
+          aboutFood: aboutFood,
+        };
+      } else {
+        return food;
+      }
+    });
+
+    setFoodList(updatedFoodList);
+    sessionStorage.setItem("foodList", JSON.stringify(updatedFoodList));
+
     resetFieldValue();
     toast.success("Successfully Updated!");
   }
@@ -71,8 +80,8 @@ export default function AddFoodItem() {
               ? (event) => updateFood(event)
               : (event) => {
                   event.preventDefault();
-                  console.log("Form Submitted");
-                  setFoodList([
+
+                  const updatedList = [
                     ...foodList,
                     {
                       id: nanoid(),
@@ -82,7 +91,13 @@ export default function AddFoodItem() {
                       star: star,
                       aboutFood: aboutFood,
                     },
-                  ]);
+                  ];
+
+                  setFoodList(updatedList);
+                  sessionStorage.setItem(
+                    "foodList",
+                    JSON.stringify(updatedList)
+                  );
 
                   resetFieldValue();
                   toast.success("Successfully added!");
@@ -132,17 +147,19 @@ export default function AddFoodItem() {
           </div>
 
           <div className="form-field">
-            <input
+            <select
               id="star"
-              type="number"
-              min={1}
-              max={5}
-              placeholder="Ex. 1 to 5"
               value={star}
               onChange={(event) => {
                 setStar(event.target.value);
               }}
-            />
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
             <label htmlFor="star">Star</label>
           </div>
 
