@@ -2,7 +2,7 @@ import heroBlob from "../assets/images/blob.svg";
 import foodDish from "../assets/images/food_dish.png";
 import sideImg from "../assets/images/side_img.png";
 import menuDish1 from "../assets/images/food_plates/plate1.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Landing() {
   const infoSectionList = [
@@ -26,62 +26,68 @@ export default function Landing() {
     },
   ];
 
-  const [foodList] = useState([
-    {
-      id: 1,
-      title: "Rose Muffen",
-      subTitle: "Served with french fries + drink",
-      price: 120,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 3,
-    },
-    {
-      id: 2,
-      title: "Rose Muffen-2",
-      subTitle: "Served with french fries + drink",
-      price: 120,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 4,
-    },
-    {
-      id: 3,
-      title: "Rose Muffen-3",
-      subTitle: "Served with french fries + drink",
-      price: 125,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 4,
-    },
-    {
-      id: 4,
-      title: "Rose Muffen-4",
-      subTitle: "Served with french fries + drink",
-      price: 220,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 3,
-    },
-    {
-      id: 5,
-      title: "Rose Muffen-5",
-      subTitle: "Served with french fries + drink",
-      price: 320,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 4,
-    },
-    {
-      id: 6,
-      title: "Rose Muffen-6",
-      subTitle: "Served with french fries + drink",
-      price: 520,
-      description:
-        "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-      stars: 4,
-    },
-  ]);
+  const [foodList, setFoodList] = useState([]);
+
+  useEffect(() => {
+    setFoodList(JSON.parse(sessionStorage.getItem("foodList"))??[]);
+  }, []);
+
+  // [
+  //   {
+  //     id: 1,
+  //     title: "Rose Muffen",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 120,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 3,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Rose Muffen-2",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 120,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 4,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Rose Muffen-3",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 125,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 4,
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Rose Muffen-4",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 220,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 3,
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Rose Muffen-5",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 320,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 4,
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Rose Muffen-6",
+  //     subTitle: "Served with french fries + drink",
+  //     price: 520,
+  //     description:
+  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
+  //     stars: 4,
+  //   },
+  // ]
 
   return (
     <>
@@ -156,9 +162,9 @@ export default function Landing() {
                 <h3 className="food-title">{food.title}</h3>
                 <p className="food-subtitle">{food.subTitle}</p>
                 <p className="price">{food.price}$</p>
-                <p>{food.description}</p>
+                <p>{food.aboutFood}</p>
                 <div>
-                  {[...Array(food.stars)].map((star, index) => (
+                  {[...Array(parseInt(food.stars))].map((star, index) => (
                     <i className="bi bi-star-fill" key={food.title + index} />
                   ))}
                 </div>
@@ -175,7 +181,7 @@ export default function Landing() {
       </section>
       <section className="testimonial-section sectionX">
         <div className="section-header">
-        <label>Testimonial</label>
+          <label>Testimonial</label>
           <h2>What They Are Saying</h2>
           <p>
             It's through mistakes that you actually grow <br />

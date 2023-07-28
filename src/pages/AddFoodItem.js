@@ -7,7 +7,7 @@ export default function AddFoodItem() {
   const [title, setTitle] = useState("");
   const [subTitle, setSubtitle] = useState("");
   const [price, setPrice] = useState("");
-  const [star, setStar] = useState("");
+  const [stars, setStars] = useState("");
   const [aboutFood, setAboutFood] = useState("");
   const [foodList, setFoodList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -20,7 +20,7 @@ export default function AddFoodItem() {
     setTitle("");
     setSubtitle("");
     setPrice("");
-    setStar("");
+    setStars("");
     setAboutFood("");
     setIsEditing(false);
   }
@@ -40,7 +40,7 @@ export default function AddFoodItem() {
     setTitle(food.title);
     setSubtitle(food.subTitle);
     setPrice(food.price);
-    setStar(food.star);
+    setStars(food.stars);
     setAboutFood(food.aboutFood);
   }
 
@@ -54,7 +54,7 @@ export default function AddFoodItem() {
           title: title,
           subTitle: subTitle,
           price: price,
-          star: star,
+          stars: stars,
           aboutFood: aboutFood,
         };
       } else {
@@ -88,7 +88,7 @@ export default function AddFoodItem() {
                       title: title,
                       subTitle: subTitle,
                       price: price,
-                      star: star,
+                      stars: stars,
                       aboutFood: aboutFood,
                     },
                   ];
@@ -148,10 +148,10 @@ export default function AddFoodItem() {
 
           <div className="form-field">
             <select
-              id="star"
-              value={star}
+              id="stars"
+              value={stars}
               onChange={(event) => {
-                setStar(event.target.value);
+                setStars(event.target.value);
               }}
             >
               <option value="1">1</option>
@@ -160,7 +160,7 @@ export default function AddFoodItem() {
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-            <label htmlFor="star">Star</label>
+            <label htmlFor="stars">Stars</label>
           </div>
 
           <div className="form-field">
@@ -195,7 +195,7 @@ export default function AddFoodItem() {
               <th>Title</th>
               <th>Subtitle</th>
               <th>Price</th>
-              <th>star</th>
+              <th>Stars</th>
               <th>About Food</th>
               <th>Actions</th>
             </tr>
@@ -207,7 +207,7 @@ export default function AddFoodItem() {
                 <td>{food.title}</td>
                 <td>{food.subTitle}</td>
                 <td>{food.price}</td>
-                <td>{food.star}</td>
+                <td>{food.stars}</td>
                 <td>{food.aboutFood}</td>
                 <td>
                   <button type="button" onClick={() => editFoodItems(food)}>
