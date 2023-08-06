@@ -3,8 +3,12 @@ import foodDish from "../assets/images/food_dish.png";
 import sideImg from "../assets/images/side_img.png";
 import menuDish1 from "../assets/images/food_plates/plate1.jpg";
 import { useEffect, useState } from "react";
+import RoutingPaths from "../utility/RoutingPaths";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+  const navigate = useNavigate();
+
   const infoSectionList = [
     {
       id: 1,
@@ -29,7 +33,7 @@ export default function Landing() {
   const [foodList, setFoodList] = useState([]);
 
   useEffect(() => {
-    setFoodList(JSON.parse(sessionStorage.getItem("foodList"))??[]);
+    setFoodList(JSON.parse(sessionStorage.getItem("foodList")) ?? []);
   }, []);
 
   return (
@@ -47,7 +51,12 @@ export default function Landing() {
           </nav>
           <div className="action-buttons">
             <i className="bi bi-cart3" />
-            <button className="buttonX white">Booking Now</button>
+            <button
+              className="buttonX white"
+              onClick={() => navigate(RoutingPaths.LOGIN)}
+            >
+              Log in
+            </button>
           </div>
         </div>
       </header>
