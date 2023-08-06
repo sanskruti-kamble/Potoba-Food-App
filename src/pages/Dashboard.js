@@ -22,7 +22,7 @@ export default function Dashboard() {
     if (token === null || token === undefined) {
       navigate(RoutingPaths.LOGIN);
     }
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     setFoodList(JSON.parse(sessionStorage.getItem("foodList")) ?? []);

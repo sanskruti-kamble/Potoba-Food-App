@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
 
 import Router from "./router/Routes";
-import Login from "./pages/Login";
 
 export default function App() {
   return (
@@ -30,8 +29,6 @@ export default function App() {
           theme="light"
         />
       </div>
-      
     </BrowserRouter>
-    
   );
 }
