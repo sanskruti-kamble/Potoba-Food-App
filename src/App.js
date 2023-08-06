@@ -4,29 +4,34 @@ import "./assets/css/style.css";
 import "./assets/css/frontend.css";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
-
-import Landing from "./pages/Landing";
-import AddFoodItem from "./pages/AddFoodItem";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter } from "react-router-dom";
+
+import Router from "./router/Routes";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
-    <div className="App">
-       <Landing/> 
-      <AddFoodItem />
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Router />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
+      
+    </BrowserRouter>
+    
   );
 }

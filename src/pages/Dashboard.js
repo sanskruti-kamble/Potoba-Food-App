@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import RoutingPaths from "../utility/RoutingPaths";
 
-export default function AddFoodItem() {
+export default function Dashboard() {
+  const navigate = useNavigate();
+
   const [foodId, setFoodId] = useState(0);
   const [title, setTitle] = useState("");
   const [subTitle, setSubtitle] = useState("");
@@ -12,9 +16,17 @@ export default function AddFoodItem() {
   const [foodList, setFoodList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
 
+  //by using useEffect** google it
   useEffect(() => {
-    setFoodList(JSON.parse(sessionStorage.getItem("foodList"))??[]);
+    const token = sessionStorage.getItem("token");
+    if (token === null || token === undefined) {
+      navigate(RoutingPaths.LOGIN);
+    }
   }, []);
+
+  useEffect(() => {
+    setFoodList(JSON.parse(sessionStorage.getItem("foodList")) ?? []);
+  }, []); //[]- blank array la apn dependency array bolto ....dependency array blank asel tr func 1 vela starting la call hoien , nasel ha array tr pratyek veli function state change zali ki call hoiel  ----- by Sanket Sir
 
   function resetFieldValue() {
     setTitle("");
@@ -69,8 +81,20 @@ export default function AddFoodItem() {
     toast.success("Successfully Updated!");
   }
 
+
+  function logoutHandler(){
+    sessionStorage.removeItem("token");
+    navigate(RoutingPaths.LOGIN);
+    toast.success("Logged out successfully!!")
+  }
+
   return (
     <>
+      <section className="sectionX">
+        <button className="buttonX" type="button" onClick={logoutHandler}>
+          Log Out
+        </button>
+      </section>
       <section className="sectionX">
         <h1 className="txt-primary">Add New Food Item</h1>
         <p>Please fill out the details to add a new food item.</p>
