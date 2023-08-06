@@ -32,63 +32,6 @@ export default function Landing() {
     setFoodList(JSON.parse(sessionStorage.getItem("foodList"))??[]);
   }, []);
 
-  // [
-  //   {
-  //     id: 1,
-  //     title: "Rose Muffen",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 120,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 3,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Rose Muffen-2",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 120,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 4,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Rose Muffen-3",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 125,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 4,
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Rose Muffen-4",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 220,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 3,
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Rose Muffen-5",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 320,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 4,
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Rose Muffen-6",
-  //     subTitle: "Served with french fries + drink",
-  //     price: 520,
-  //     description:
-  //       "Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, add Tender crisp patty an more..",
-  //     stars: 4,
-  //   },
-  // ]
-
   return (
     <>
       <header className="main-header sectionX">
